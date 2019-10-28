@@ -1,2 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tic tak Toe</title>
+    <link rel="stylesheet" href="maincss.css">
 
 
+</head>
+
+<body>
+
+    <h1 style="color:green">Tic Tac Toe Game </h1><br>
+    <span>
+            <a> rotation</a>
+        <label class="switch">
+                    <input class = "checkbox" type="checkbox">
+                    <span class="slider round"></span>
+    </label>
+    </span>
+    <h3 id="player_turn">Player 1 turn</h3><br>
+
+    <table id="board" border="1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+
+    </table><br>
+    <span id="player1_name">Player1 O:</span> <a style="color:red" id="player1_result">0</a>
+
+    <span id="player2_name">Player2 X:</span> <a style="color:red" id="player2_result">0</a>
+
+    <button id="reset"> RESET</button></body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="App.js"></script>
+
+</html>
