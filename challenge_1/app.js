@@ -77,7 +77,7 @@ class TicTacToe {
                 t.board = t.initBoard();
             }, 200);
         }
-        this.rotateBoard();
+        // this.rotateBoard();
     }
 
     checkRows() {
