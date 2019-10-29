@@ -12,15 +12,28 @@ var express = require("express");
 var process = require("./ProcessData.js");
 var bodyParser = require("body-parser");
 var app = express();
+const fileupload = require("express-fileupload");
 app.use(bodyParser.json());
+app.use(fileupload());
 app.use(express.static(__dirname + "/client"));
 app.use(express.urlencoded());
+
 var fs = require("fs");
 
 var PORT = 3000;
 
 app.get("/", function(req, res) {
     res.status(200).send("Helloccc world");
+});
+
+app.post("/upload", (req, res) => {
+    const name = req.files.fileToUpload.name;
+    var data = req.files.fileToUpload.data.toString();
+    // console.log(data);
+    data = process.getAttributes(JSON.parse(data));
+
+    fs.writeFile("./samples/csv_report1.csv", data, err => {});
+    res.end("Done");
 });
 
 app.post("/", function(req, res) {
@@ -35,13 +48,13 @@ app.post("/", function(req, res) {
     fs.writeFile("./samples/csv_report.csv", data, err => {
         // console.log(__dirname);
         // res.download(__dirname + "/samples/csv_report.csv");
-        const file = `${__dirname}/samples/csv_report.csv`;
-        res.download("./samples/csv_report.csv"); // Set disposition and send it.
+        // const file = `${__dirname}/samples/csv_report.csv`;
+        // res.download("./samples/csv_report.csv"); // Set disposition and send it.
     });
 
     res.status(200);
     // res.send(data);
-    res.end();
+    res.end("Done");
 });
 
 app.listen(PORT, function() {
