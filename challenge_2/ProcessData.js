@@ -18,6 +18,15 @@ var processData = function(jsonObject) {
     return keys;
 };
 
+
+
+
+
+
+
+
+
+
 var getAttributes = function(jsonObject) {
     var result = [];
     var keys = Object.keys(processData(jsonObject));
